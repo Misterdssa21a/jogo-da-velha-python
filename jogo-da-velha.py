@@ -36,7 +36,17 @@ while opcao != "4":
 
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
-        print("Em construção.")
+        print("")
+        print("================ REGRAS ================")
+        print("- O jogo é para dois jogadores. O 1º é o X e o 2º é o O.")
+        print("- O X sempre começa.")
+        print("- As linhas são as letras A, B e C.")
+        print("- As colunas são os números 1, 2 e 3.")
+        print("- Na sua vez, digite a letra e o número juntos. Ex.: B2 é o centro.")
+        print("- Pode digitar em maiúscula ou minúscula (B2 ou b2).")
+        print("- Ganha quem completar uma linha, uma coluna ou uma diagonal.")
+        print("- Se as 9 casas ficarem cheias sem vencedor, dá empate.")
+
     # ===== BLOCO 3: VER PLACAR (MARCOS) =====
     elif opcao == "3":
         print("Em construção.")
@@ -44,4 +54,7 @@ while opcao != "4":
     elif opcao == "4":
         print("")
         print("Obrigado por jogar")
-   
+        
+   # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
+    else:
+        print("Opção inválida. Digite 1, 2, 3 ou 4.")
