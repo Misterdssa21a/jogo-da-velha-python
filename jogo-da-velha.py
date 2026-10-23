@@ -20,3 +20,22 @@ while nome2 == "" or nome2 == nome1:
     elif nome2 == nome1:
         print("Os dois jogadores precisam ter nomes diferentes.")
 
+       # ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
+opcao = ""
+while opcao != "4":
+    print("")
+    print("============== MENU ==============")
+    print("1 - Jogar")
+    print("2 - Ver regras")
+    print("3 - Ver placar")
+    print("4 - Sair")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        print("Em construção.")
+
+    # ===== BLOCO 1: REGRAS (Kallyson) =====
+    elif opcao == "2":
+        print("Em construção.")
+
+   
