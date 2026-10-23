@@ -32,7 +32,28 @@ while opcao != "4":
     opcao = input("Escolha uma opção: ")
 
     if opcao == "1":
-        print("Em construção.")
+        # ===== BLOCO 1: TABULEIRO NA TELA (Kallyson) =====
+        print("")
+        print("      1   2   3")
+        print("    +---+---+---+")
+        
+        # for aninhado que desenha o tabuleiro:
+        # o for de fora (i) percorre as linhas A, B e C; para cada linha,
+        # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
+        # conteúdo das 3 casas em uma única linha de texto.
+        for i in range(3):
+            if i == 0:
+                letras = "A"
+            elif i == 1:
+                letras = "B"
+            else:
+                letras = "C"
+            desenho = f"  {letras} |"
+            for j in range(3):
+                desenho = f"{desenho} {tabuleiro[i][j]} |"
+            print(desenho)
+            print("    +---+---+---+")
+
 
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
@@ -54,7 +75,7 @@ while opcao != "4":
     elif opcao == "4":
         print("")
         print("Obrigado por jogar")
-        
+
    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
     else:
         print("Opção inválida. Digite 1, 2, 3 ou 4.")
