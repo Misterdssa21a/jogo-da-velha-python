@@ -37,5 +37,11 @@ while opcao != "4":
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
         print("Em construção.")
-
+    # ===== BLOCO 3: VER PLACAR (MARCOS) =====
+    elif opcao == "3":
+        print("Em construção.")
+    # ===== BLOCO 3: SAIR E ESTATÍSTICA DA SESSÃO - DESAFIO DE LÓGICA (MARCOS) =====
+    elif opcao == "4":
+        print("")
+        print("Obrigado por jogar")
    
