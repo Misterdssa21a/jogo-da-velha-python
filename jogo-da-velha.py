@@ -54,6 +54,44 @@ while opcao != "4":
             print("    +---+---+---+")
 
 
+                    # ===== BLOCO 2: LEITURA DA JOGADA (Victor) =====
+        jogador = "X"
+        jogada_valida = False
+        # repete a pergunta até o jogador digitar uma casa válida e livre
+        while jogada_valida == False:
+            entrada = input(f"{nome1} (X), digite a casa (ex.: B2): ")
+            if entrada == "":
+                print("Você não digitou nada! Tente de novo.")
+            else:
+                achou = False
+                # for aninhado: gera o nome de cada casa (A1, A2 ... C3)
+                # e compara com o que foi digitado.
+                # i percorre as linhas e j percorre as colunas.
+                for i in range(3):
+                    for j in range(3):
+                        if i == 0:
+                            maiuscula = "A"
+                            minuscula = "a"
+                        elif i == 1:
+                            maiuscula = "B"
+                            minuscula = "b"
+                        else:
+                            maiuscula = "C"
+                            minuscula = "c"
+                        numero = str(j + 1)
+                        if entrada == maiuscula + numero or entrada == minuscula + numero:
+                            achou = True
+                            linha = i
+                            coluna = j
+                if achou == False:
+                    print("Jogada inválida! Use A, B ou C e 1, 2 ou 3. Ex.: B2.")
+                elif tabuleiro[linha][coluna] != " ":
+                    print("Essa casa já está ocupada! Escolha outra.")
+                else:
+                    tabuleiro[linha][coluna] = jogador
+                    jogada_valida = True
+
+
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
         print("")
