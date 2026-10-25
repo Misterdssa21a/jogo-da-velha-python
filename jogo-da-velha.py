@@ -53,45 +53,46 @@ while opcao != "4":
             print(desenho)
             print("    +---+---+---+")
 
-                    # ===== BLOCO 2: LEITURA DA JOGADA (Victor) =====
-        jogador = "X"
-        jogada_valida = False
-        # repete a pergunta até o jogador digitar uma casa válida e livre
-        while jogada_valida == False:
-            entrada = input(nome1 + " (X), digite a casa (ex.: B2): ")
-            if entrada == "":
-                print("Você não digitou nada! Tente de novo.")
-            else:
-                achou = False
-                # for aninhado que procura a casa digitada:
-                # o for de fora (i) percorre as linhas A, B e C e o for de
-                # dentro (j) percorre as colunas 1, 2 e 3. Em cada volta o
-                # código monta o nome da casa (ex.: B2) e compara com a entrada.
-                for i in range(3):
-                    for j in range(3):
-                        if i == 0:
-                            maiuscula = "A"
-                            minuscula = "a"
-                        elif i == 1:
-                            maiuscula = "B"
-                            minuscula = "b"
-                        else:
-                            maiuscula = "C"
-                            minuscula = "c"
-                        numero = str(j + 1)
-                        # aceita maiúscula (B2) e minúscula (b2)
-                        if entrada == maiuscula + numero or entrada == minuscula + numero:
-                            achou = True
-                            linha = i
-                            coluna = j
-                if achou == False:
-                    print("Jogada inválida! Use A, B ou C e 1, 2 ou 3. Ex.: B2.")
-                elif tabuleiro[linha][coluna] != " ":
-                    # casa já ocupada: mostra qual casa foi digitada e pede outra
-                    print("A casa " + entrada + " já está ocupada por " + tabuleiro[linha][coluna] + "! Escolha outra.")
+         # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
+        # O while repete a leitura até a jogada ser válida e livre.
+        acao_valida = False
+        while not acao_valida:
+            acao = input("Escolha a casa (ex.: B2): ")
+
+            # for aninhado que procura a jogada digitada entre as 9 casas:
+            # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
+            # o for de dentro (j) percorre as colunas e monta o texto da casa,
+            # por exemplo "B" + "2" = "B2". Se a entrada for igual ao texto
+            # de alguma casa, guardamos a linha e a coluna dela.
+            linha = -1         # -1 significa "ainda não achou a casa"
+            coluna = -1
+            for i in range(3):
+                if i == 0:
+                    maiuscula = "A"
+                    minuscula = "a"
+                elif i == 1:
+                    maiuscula = "B"
+                    minuscula = "b"
                 else:
-                    tabuleiro[linha][coluna] = jogador
-                    jogada_valida = True
+                    maiuscula = "C"
+                    minuscula = "c"
+                for j in range(3):
+                    if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
+                        linha = i
+                        coluna = j
+
+            if acao == "":
+                print("Você não digitou nada. Digite uma letra (A a C) e um número (1 a 3).")
+            elif linha == -1:
+                print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
+            elif tabuleiro[linha][coluna] != " ":
+                # casa já ocupada: mostra qual casa foi digitada e pede outra
+                print("A casa " + acao + " já está ocupada por " + tabuleiro[linha][coluna] + "! Escolha outra.")
+            else:
+                acao_valida = True
+
+        # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
+        tabuleiro[linha][coluna] = "X"
                     
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
