@@ -53,21 +53,19 @@ while opcao != "4":
             print(desenho)
             print("    +---+---+---+")
 
-         # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
+        # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
         # marca guarda o símbolo de quem joga agora (começa com X)
         marca = "X"
+
         # O while repete a leitura até a jogada ser válida e livre.
         acao_valida = False
         while not acao_valida:
             acao = input("Vez do " + marca + ", escolha a casa (ex.: B2): ")
 
-            # for aninhado que procura a jogada digitada entre as 9 casas:
-            # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
-            # o for de dentro (j) percorre as colunas e monta o texto da casa,
-            # por exemplo "B" + "2" = "B2". Se a entrada for igual ao texto
-            # de alguma casa, guardamos a linha e a coluna dela.
-            linha = -1         # -1 significa "ainda não achou a casa"
+            # Procura a jogada digitada entre as 9 casas.
+            linha = -1
             coluna = -1
+
             for i in range(3):
                 if i == 0:
                     maiuscula = "A"
@@ -78,6 +76,7 @@ while opcao != "4":
                 else:
                     maiuscula = "C"
                     minuscula = "c"
+
                 for j in range(3):
                     if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
                         linha = i
@@ -92,7 +91,9 @@ while opcao != "4":
             else:
                 acao_valida = True
 
-        # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
+        # Registra a jogada usando a variável marca.
+        tabuleiro[linha][coluna] = marca
+                # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
         marca = "X"
         acao_valida = False
 
