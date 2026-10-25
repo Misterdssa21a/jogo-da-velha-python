@@ -54,10 +54,12 @@ while opcao != "4":
             print("    +---+---+---+")
 
          # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
+        # marca guarda o símbolo de quem joga agora (começa com X)
+        marca = "X"
         # O while repete a leitura até a jogada ser válida e livre.
         acao_valida = False
         while not acao_valida:
-            acao = input("Escolha a casa (ex.: B2): ")
+            acao = input("Vez do " + marca + ", escolha a casa (ex.: B2): ")
 
             # for aninhado que procura a jogada digitada entre as 9 casas:
             # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
@@ -92,7 +94,7 @@ while opcao != "4":
                 acao_valida = True
 
         # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
-        tabuleiro[linha][coluna] = "X"
+        tabuleiro[linha][coluna] = marca
                     
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
