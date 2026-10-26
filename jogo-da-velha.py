@@ -32,11 +32,25 @@ while opcao != "4":
     opcao = input("Escolha uma opção: ")
 
     if opcao == "1":
-        # ===== BLOCO 1: TABULEIRO NA TELA (Kallyson) =====
+        # Limpa a matriz com for aninhado:
+        # o for de fora (i) percorre as 3 linhas e o for de dentro (j)
+        # percorre as 3 colunas de cada linha, deixando cada casa vazia.
+        for i in range(3):
+            for j in range(3):
+                tabuleiro[i][j] = " "
+
+        marca = "X"       # o X sempre começa
+
+        # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
         print("")
         print("      1   2   3")
         print("    +---+---+---+")
-        
+
+
+        # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
+        print("")
+        print("      1   2   3")
+        print("    +---+---+---+")
         # for aninhado que desenha o tabuleiro:
         # o for de fora (i) percorre as linhas A, B e C; para cada linha,
         # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
