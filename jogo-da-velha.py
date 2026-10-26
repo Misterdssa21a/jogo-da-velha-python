@@ -54,7 +54,83 @@ while opcao != "4":
             print(desenho)
             print("    +---+---+---+")
 
+        # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
+        # marca guarda o símbolo de quem joga agora (começa com X)
+        marca = "X"
 
+        # O while repete a leitura até a jogada ser válida e livre.
+        acao_valida = False
+        while not acao_valida:
+            acao = input("Vez do " + marca + ", escolha a casa (ex.: B2): ")
+
+            # Procura a jogada digitada entre as 9 casas.
+            linha = -1
+            coluna = -1
+
+            for i in range(3):
+                if i == 0:
+                    maiuscula = "A"
+                    minuscula = "a"
+                elif i == 1:
+                    maiuscula = "B"
+                    minuscula = "b"
+                else:
+                    maiuscula = "C"
+                    minuscula = "c"
+
+                for j in range(3):
+                    if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
+                        linha = i
+                        coluna = j
+
+            if acao == "":
+                print("Você não digitou nada. Digite uma letra (A a C) e um número (1 a 3).")
+            elif linha == -1:
+                print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
+            elif tabuleiro[linha][coluna] != " ":
+                print("A casa " + acao + " já está ocupada por " + tabuleiro[linha][coluna] + "! Escolha outra.")
+            else:
+                acao_valida = True
+
+        # Registra a jogada usando a variável marca.
+        tabuleiro[linha][coluna] = marca
+                # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
+        marca = "X"
+        acao_valida = False
+
+        while not acao_valida:
+            acao = input("Vez do " + marca + ", escolha a casa (ex.: B2): ")
+
+            linha = -1
+            coluna = -1
+
+            for i in range(3):
+                if i == 0:
+                    maiuscula = "A"
+                    minuscula = "a"
+                elif i == 1:
+                    maiuscula = "B"
+                    minuscula = "b"
+                else:
+                    maiuscula = "C"
+                    minuscula = "c"
+
+                for j in range(3):
+                    if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
+                        linha = i
+                        coluna = j
+
+            if acao == "":
+                print("Você não digitou nada. Digite uma letra (A a C) e um número (1 a 3).")
+            elif linha == -1:
+                print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
+            elif tabuleiro[linha][coluna] != " ":
+                print("A casa " + acao + " já está ocupada por " + tabuleiro[linha][coluna] + "! Escolha outra.")
+            else:
+                acao_valida = True
+
+        tabuleiro[linha][coluna] = marca
+       
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
         print("")
