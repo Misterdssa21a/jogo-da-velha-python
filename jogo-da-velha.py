@@ -32,10 +32,11 @@ while opcao != "4":
     opcao = input("Escolha uma opção: ")
 
     if opcao == "1":
-         # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
+        # ===== BLOCO 1: TABULEIRO NA TELA (Kallyson) =====
         print("")
         print("      1   2   3")
         print("    +---+---+---+")
+        
         # for aninhado que desenha o tabuleiro:
         # o for de fora (i) percorre as linhas A, B e C; para cada linha,
         # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
@@ -150,7 +151,7 @@ while opcao != "4":
     elif opcao == "4":
         print("")
         print("Obrigado por jogar")
-        
+
    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
     else:
         print("Opção inválida. Digite 1, 2, 3 ou 4.")
