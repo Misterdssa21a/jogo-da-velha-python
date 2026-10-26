@@ -20,7 +20,7 @@ while nome2 == "" or nome2 == nome1:
     elif nome2 == nome1:
         print("Os dois jogadores precisam ter nomes diferentes.")
 
-       # ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
+# ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
 opcao = ""
 while opcao != "4":
     print("")
@@ -40,7 +40,7 @@ while opcao != "4":
                 tabuleiro[i][j] = " "
 
         marca = "X"       # o X sempre começa
-        
+
         # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
         print("")
         print("      1   2   3")
@@ -114,14 +114,15 @@ while opcao != "4":
         print("- Ganha quem completar uma linha, uma coluna ou uma diagonal.")
         print("- Se as 9 casas ficarem cheias sem vencedor, dá empate.")
 
-    # ===== BLOCO 3: VER PLACAR (MARCOS) =====
+    # ===== BLOCO 3: VER PLACAR (Marcos) =====
     elif opcao == "3":
         print("Em construção.")
-    # ===== BLOCO 3: SAIR E ESTATÍSTICA DA SESSÃO - DESAFIO DE LÓGICA (MARCOS) =====
+
+    # ===== BLOCO 3: SAIR E ESTATÍSTICA DA SESSÃO - DESAFIO DE LÓGICA (Marcos) =====
     elif opcao == "4":
         print("")
         print("Obrigado por jogar")
 
-   # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
+    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
     else:
         print("Opção inválida. Digite 1, 2, 3 ou 4.")
