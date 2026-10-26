@@ -40,13 +40,7 @@ while opcao != "4":
                 tabuleiro[i][j] = " "
 
         marca = "X"       # o X sempre começa
-
-        # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
-        print("")
-        print("      1   2   3")
-        print("    +---+---+---+")
-
-
+        
         # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
         print("")
         print("      1   2   3")
