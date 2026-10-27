@@ -7,7 +7,7 @@ Jogo da Velha para dois jogadores, feito em Python e executado no terminal.
 - **Disciplina:** Coding
 - **Professor:** M.Sc. Tiago Martins Ribeiro
 - **Trabalho:** 2ª Avaliação
-- **Equipe:** Kallysson, Victor e Marcos
+- **Equipe:** Kallyson, Victor e Marcos
 
 ## O que o jogo faz
 
