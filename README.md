@@ -7,7 +7,7 @@ Jogo da Velha para dois jogadores, feito em Python e executado no terminal.
 - **Disciplina:** Coding
 - **Professor:** M.Sc. Tiago Martins Ribeiro
 - **Trabalho:** 2ª Avaliação
-- **Equipe:** Kallysson, Victor e Marcos
+- **Equipe:** Kallyson, Victor e Marcos
 
 ## O que o jogo faz
 
@@ -81,7 +81,7 @@ Onde está no código: *(preencher com o bloco ou as linhas quando o código est
 
 | Integrante | Responsabilidades |
 |---|---|
-| Kallysson | Matriz 3x3 (escrita linha por linha), nomes dos jogadores, exibição do tabuleiro com `for` aninhado, menu com `while`, regras e "jogar novamente" (limpa a matriz com `for` aninhado) |
+| Kallyson | Matriz 3x3 (escrita linha por linha), nomes dos jogadores, exibição do tabuleiro com `for` aninhado, menu com `while`, regras e "jogar novamente" (limpa a matriz com `for` aninhado) |
 | Victor | Leitura e validação da jogada, casa livre, marcação da jogada, troca de jogador e verificação de vitória com laços (linhas, colunas e diagonais) |
 | Marcos | Sequência de jogadas da partida (`while`), empate, placar acumulado, estatísticas da sessão (desafio) e tela de saída |
 
