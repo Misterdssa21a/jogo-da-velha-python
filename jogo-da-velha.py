@@ -1,4 +1,4 @@
-# ===== BLOCO 1: MATRIZ E NOMES (Kallysson) =====
+# ===== BLOCO 1: MATRIZ E NOMES (Kallyson) =====
 # Tabuleiro 3x3 declarado por extenso, linha por linha.
 # Casa vazia = " " (espaço).
 tabuleiro = [[" ", " ", " "],
@@ -21,7 +21,7 @@ while nome2 == "" or nome2 == nome1:
         print("Os dois jogadores precisam ter nomes diferentes.")
 
 
-# ===== BLOCO 1: MENU PRINCIPAL (Kallysson) =====
+# ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
 opcao = ""
 while opcao != "4":
     print("")
@@ -47,7 +47,7 @@ while opcao != "4":
         # Cada volta mostra o tabuleiro e pede uma jogada, até a partida terminar.
         while not fim:
 
-            # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
+            # ===== BLOCO 1: TABULEIRO NA TELA (Kallyson) =====
             print("")
             print("      1   2   3")
             print("    +---+---+---+")
@@ -134,7 +134,7 @@ while opcao != "4":
 
         print("*** Deu velha! O tabuleiro ficou cheio. ***")
 
-    # ===== BLOCO 1: REGRAS (Kallysson) =====
+    # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
         print("")
         print("================ REGRAS ================")
@@ -156,6 +156,6 @@ while opcao != "4":
         print("")
         print("Obrigado por jogar")
 
-    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallysson) =====
+    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
     else:
         print("Opção inválida. Digite 1, 2, 3 ou 4.")
