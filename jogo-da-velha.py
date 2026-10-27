@@ -41,7 +41,7 @@ while opcao != "4":
                 tabuleiro[i][j] = " "
 
         marca = "X"       # o X sempre começa
-        fim = False       # vira True quando o tabuleiro enche
+        fim = False       # vira True quando alguém vence ou dá empate
 
         # ===== BLOCO 3: SEQUÊNCIA DA PARTIDA (Marcos) =====
         # Cada volta mostra o tabuleiro e pede uma jogada, até a partida terminar.
@@ -114,6 +114,18 @@ while opcao != "4":
             # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
             tabuleiro[linha][coluna] = marca
 
+            # ===== BLOCO 2: VITÓRIA (Victor) =====
+            # O for repete o mesmo teste para as 3 linhas e as 3 colunas
+            # (i é o número da linha no primeiro if e o da coluna no segundo).
+            venceu = False
+            for i in range(3):
+                # linha i completa com o símbolo do jogador atual
+                if tabuleiro[i][0] == marca and tabuleiro[i][1] == marca and tabuleiro[i][2] == marca:
+                    venceu = True
+                # coluna i completa com o símbolo do jogador atual
+                if tabuleiro[0][i] == marca and tabuleiro[1][i] == marca and tabuleiro[2][i] == marca:
+                    venceu = True
+
             # ===== BLOCO 3: EMPATE (Marcos) =====
             # for aninhado que conta as casas vazias: o de fora (i) percorre as
             # linhas e o de dentro (j) percorre as colunas, somando 1 a cada " ".
@@ -123,7 +135,9 @@ while opcao != "4":
                     if tabuleiro[i][j] == " ":
                         vazio = vazio + 1
 
-            if vazio == 0:
+            if venceu:
+                fim = True
+            elif vazio == 0:
                 fim = True
             else:
                 # ===== BLOCO 2: TROCA DE JOGADOR (Victor) =====
@@ -132,7 +146,10 @@ while opcao != "4":
                 else:
                     marca = "X"
 
-        print("*** Deu velha! O tabuleiro ficou cheio. ***")
+        if venceu:
+            print(f"*** {jogador} ({marca}) venceu a partida! ***")
+        else:
+            print("*** Deu velha! O tabuleiro ficou cheio. ***")
 
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
