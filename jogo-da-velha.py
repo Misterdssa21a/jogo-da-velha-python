@@ -114,6 +114,23 @@ while opcao != "4":
             # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
             tabuleiro[linha][coluna] = marca
 
+                        # ===== BLOCO 2: VERIFICAÇÃO DE VITÓRIA (Victor) =====
+            venceu = False
+
+            # O for repete o teste para as 3 linhas e colunas.
+            for i in range(3):
+                # Verifica a linha.
+                if tabuleiro[i][0] == marca and tabuleiro[i][1] == marca and tabuleiro[i][2] == marca:
+                    venceu = True
+
+                # Verifica a coluna.
+                if tabuleiro[0][i] == marca and tabuleiro[1][i] == marca and tabuleiro[2][i] == marca:
+                    venceu = True
+
+            # Avisa quem venceu.
+            if venceu:
+                print("Parabéns, " + jogador + "! Você venceu!")
+
             # ===== BLOCO 3: EMPATE (Marcos) =====
             # for aninhado que conta as casas vazias: o de fora (i) percorre as
             # linhas e o de dentro (j) percorre as colunas, somando 1 a cada " ".
