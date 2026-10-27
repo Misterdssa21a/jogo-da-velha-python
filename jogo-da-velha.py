@@ -1,6 +1,6 @@
-# ===== BLOCO 1: MATRIZ E NOMES (Kallyson) =====
-# tabuleiro 3x3 declarado por extenso, linha por linha.
-# casa vazia = " " (espaço).
+# ===== BLOCO 1: MATRIZ E NOMES (Kallysson) =====
+# Tabuleiro 3x3 declarado por extenso, linha por linha.
+# Casa vazia = " " (espaço).
 tabuleiro = [[" ", " ", " "],
              [" ", " ", " "],
              [" ", " ", " "]]
@@ -20,7 +20,8 @@ while nome2 == "" or nome2 == nome1:
     elif nome2 == nome1:
         print("Os dois jogadores precisam ter nomes diferentes.")
 
-# ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
+
+# ===== BLOCO 1: MENU PRINCIPAL (Kallysson) =====
 opcao = ""
 while opcao != "4":
     print("")
@@ -50,6 +51,7 @@ while opcao != "4":
             print("")
             print("      1   2   3")
             print("    +---+---+---+")
+
             # for aninhado que desenha o tabuleiro:
             # o for de fora (i) percorre as linhas A, B e C; para cada linha,
             # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
@@ -67,16 +69,24 @@ while opcao != "4":
                 print(desenho)
                 print("    +---+---+---+")
 
+            if marca == "X":
+                jogador = nome1
+            else:
+                jogador = nome2
+
             # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
-            # O while repete a leitura até a jogada ser válida e livre.
+            # O while repete a leitura até a jogada ser válida.
             acao_valida = False
             while not acao_valida:
-                acao = input("Vez do " + marca + ", escolha a casa (ex.: B2): ")
+                acao = input(f"{jogador} ({marca}), escolha a casa (ex.: B2): ")
 
-                # Procura a jogada digitada entre as 9 casas.
-                linha = -1
+                # for aninhado que procura a jogada digitada entre as 9 casas:
+                # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
+                # o for de dentro (j) percorre as colunas e monta o texto da casa,
+                # por exemplo "B" + "2" = "B2". Se a entrada for igual ao texto
+                # de alguma casa, guardamos a linha e a coluna dela.
+                linha = -1         # -1 significa "ainda não achou a casa"
                 coluna = -1
-
                 for i in range(3):
                     if i == 0:
                         maiuscula = "A"
@@ -87,7 +97,6 @@ while opcao != "4":
                     else:
                         maiuscula = "C"
                         minuscula = "c"
-
                     for j in range(3):
                         if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
                             linha = i
@@ -98,12 +107,11 @@ while opcao != "4":
                 elif linha == -1:
                     print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
                 elif tabuleiro[linha][coluna] != " ":
-                    print("A casa " + acao + " já está ocupada por " + tabuleiro[linha][coluna] + "! Escolha outra.")
+                    print("Essa casa já está ocupada. Escolha outra.")
                 else:
                     acao_valida = True
 
             # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
-            # Registra a jogada usando a variável marca.
             tabuleiro[linha][coluna] = marca
 
             # ===== BLOCO 3: EMPATE (Marcos) =====
@@ -117,10 +125,16 @@ while opcao != "4":
 
             if vazio == 0:
                 fim = True
+            else:
+                # ===== BLOCO 2: TROCA DE JOGADOR (Victor) =====
+                if marca == "X":
+                    marca = "O"
+                else:
+                    marca = "X"
 
         print("*** Deu velha! O tabuleiro ficou cheio. ***")
 
-    # ===== BLOCO 1: REGRAS (Kallyson) =====
+    # ===== BLOCO 1: REGRAS (Kallysson) =====
     elif opcao == "2":
         print("")
         print("================ REGRAS ================")
@@ -137,11 +151,11 @@ while opcao != "4":
     elif opcao == "3":
         print("Em construção.")
 
-    # ===== BLOCO 3: SAIR E ESTATÍSTICA DA SESSÃO - DESAFIO DE LÓGICA (Marcos) =====
+    # ===== BLOCO 3: SAIR E ESTATÍSTICAS DA SESSÃO - DESAFIO DE LÓGICA (Marcos) =====
     elif opcao == "4":
         print("")
         print("Obrigado por jogar")
 
-    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
+    # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallysson) =====
     else:
         print("Opção inválida. Digite 1, 2, 3 ou 4.")
