@@ -125,6 +125,12 @@ while opcao != "4":
                 # coluna i completa com o símbolo do jogador atual
                 if tabuleiro[0][i] == marca and tabuleiro[1][i] == marca and tabuleiro[2][i] == marca:
                     venceu = True
+               # diagonal principal (A1, B2, C3)
+            if tabuleiro[0][0] == marca and tabuleiro[1][1] == marca and tabuleiro[2][2] == marca:
+                venceu = True
+            # diagonal secundária (A3, B2, C1)
+            if tabuleiro[0][2] == marca and tabuleiro[1][1] == marca and tabuleiro[2][0] == marca:
+                venceu = True
 
             # ===== BLOCO 3: EMPATE (Marcos) =====
             # for aninhado que conta as casas vazias: o de fora (i) percorre as
