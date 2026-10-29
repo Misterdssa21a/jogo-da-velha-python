@@ -33,11 +33,6 @@ while opcao != "4":
     opcao = input("Escolha uma opção: ")
 
     if opcao == "1":
-        
-        # Limpa a matriz com for aninhado:
-        # o for de fora (i) percorre as 3 linhas e o for de dentro (j)
-        # percorre as 3 colunas de cada linha, deixando cada casa vazia.
-        # conteúdo das 3 casas em uma única linha de texto. 
         nova_partida = "S"
 
         # ===== BLOCO 1: JOGAR NOVAMENTE (Kallyson) =====
@@ -56,145 +51,140 @@ while opcao != "4":
             venceu = False    # vira True se o jogador da vez completar uma linha, coluna ou diagonal
             encerrar = False  # vira True depois de mostrar o tabuleiro final
 
+            # ===== BLOCO 3: SEQUÊNCIA DA PARTIDA (Marcos) =====
+            # Cada volta mostra o tabuleiro e, se a partida não acabou, faz uma jogada.
+            # Na última volta (fim = True) só mostra o tabuleiro final e encerra o laço.
+            while not encerrar:
 
-        for i in range(3):
-            for j in range(3):
-                tabuleiro[i][j] = " "
-
-        marca = "X"       # o X sempre começa
-      
-        # ===== BLOCO 1: TABULEIRO NA TELA (Kallysson) =====
-        print("")
-        print("      1   2   3")
-        print("    +---+---+---+")
-        # for aninhado que desenha o tabuleiro:
-        # o for de fora (i) percorre as linhas A, B e C; para cada linha,
-        # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
-        # conteúdo das 3 casas em uma única linha de texto.
-        for i in range(3):
-            if i == 0:
-                letras = "A"
-            elif i == 1:
-                letras = "B"
-            else:
-                letras = "C"
-            desenho = f"  {letras} |"
-            for j in range(3):
-                desenho = f"{desenho} {tabuleiro[i][j]} |"
-            print(desenho)
-            print("    +---+---+---+")
-
-            # for aninhado que desenha o tabuleiro:
-            # o for de fora (i) percorre as linhas A, B e C; para cada linha,
-            # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
-            # conteúdo das 3 casas em uma única linha de texto.
-            for i in range(3):
-                if i == 0:
-                    letras = "A"
-                elif i == 1:
-                    letras = "B"
-                else:
-                    letras = "C"
-                desenho = f"  {letras} |"
-                for j in range(3):
-                    desenho = f"{desenho} {tabuleiro[i][j]} |"
-                print(desenho)
+                # ===== BLOCO 1: TABULEIRO NA TELA (Kallyson) =====
+                print("")
+                if fim:
+                    print("-------- Tabuleiro final --------")
+                print("      1   2   3")
                 print("    +---+---+---+")
 
-            if fim:
-                encerrar = True
-            else:
-                if marca == "X":
-                    jogador = nome1
-                else:
-                    jogador = nome2
-
-                # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
-                # O while repete a leitura até a jogada ser válida.
-                acao_valida = False
-                while not acao_valida:
-                    acao = input(f"{jogador} ({marca}), escolha a casa (ex.: B2): ")
-
-                    # for aninhado que procura a jogada digitada entre as 9 casas:
-                    # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
-                    # o for de dentro (j) percorre as colunas e monta o texto da casa,
-                    # por exemplo "B" + "2" = "B2". Se a entrada for igual ao texto
-                    # de alguma casa, guardamos a linha e a coluna dela.
-                    linha = -1         # -1 significa "ainda não achou a casa"
-                    coluna = -1
-                    for i in range(3):
-                        if i == 0:
-                            maiuscula = "A"
-                            minuscula = "a"
-                        elif i == 1:
-                            maiuscula = "B"
-                            minuscula = "b"
-                        else:
-                            maiuscula = "C"
-                            minuscula = "c"
-                        for j in range(3):
-                            if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
-                                linha = i
-                                coluna = j
-
-                    if acao == "":
-                        print("Você não digitou nada. Digite uma letra (A a C) e um número (1 a 3).")
-                    elif linha == -1:
-                        print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
-                    elif tabuleiro[linha][coluna] != " ":
-                        print("Essa casa já está ocupada. Escolha outra.")
+                # for aninhado que desenha o tabuleiro:
+                # o for de fora (i) percorre as linhas A, B e C; para cada linha,
+                # o for de dentro (j) percorre as colunas 1, 2 e 3 e junta o
+                # conteúdo das 3 casas em uma única linha de texto.
+                for i in range(3):
+                    if i == 0:
+                        letras = "A"
+                    elif i == 1:
+                        letras = "B"
                     else:
-                        acao_valida = True
-
-                # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
-                tabuleiro[linha][coluna] = marca
-
-                # ===== BLOCO 2: VITÓRIA (Victor) =====
-                # O for repete o mesmo teste para as 3 linhas e as 3 colunas
-                # (i é o número da linha no primeiro if e o da coluna no segundo).
-                venceu = False
-                for i in range(3):
-                    # linha i completa com o símbolo do jogador atual
-                    if tabuleiro[i][0] == marca and tabuleiro[i][1] == marca and tabuleiro[i][2] == marca:
-                        venceu = True
-                    # coluna i completa com o símbolo do jogador atual
-                    if tabuleiro[0][i] == marca and tabuleiro[1][i] == marca and tabuleiro[2][i] == marca:
-                        venceu = True
-                # diagonal principal (A1, B2, C3)
-                if tabuleiro[0][0] == marca and tabuleiro[1][1] == marca and tabuleiro[2][2] == marca:
-                    venceu = True
-                # diagonal secundária (A3, B2, C1)
-                if tabuleiro[0][2] == marca and tabuleiro[1][1] == marca and tabuleiro[2][0] == marca:
-                    venceu = True
-
-                # ===== BLOCO 3: EMPATE (Marcos) =====
-                # for aninhado que conta as casas vazias: o de fora (i) percorre as
-                # linhas e o de dentro (j) percorre as colunas, somando 1 a cada " ".
-                vazio = 0
-                for i in range(3):
+                        letras = "C"
+                    desenho = f"  {letras} |"
                     for j in range(3):
-                        if tabuleiro[i][j] == " ":
-                            vazio = vazio + 1
+                        desenho = f"{desenho} {tabuleiro[i][j]} |"
+                    print(desenho)
+                    print("    +---+---+---+")
 
-                if venceu:
-                    fim = True
-                elif vazio == 0:
-                    fim = True
+                if fim:
+                    encerrar = True
                 else:
-                    # ===== BLOCO 2: TROCA DE JOGADOR (Victor) =====
                     if marca == "X":
-                        marca = "O"
+                        jogador = nome1
                     else:
-                        marca = "X"
+                        jogador = nome2
 
-        # ===== BLOCO 3: RESULTADO, PLACAR E SEQUÊNCIAS (Marcos) =====
-        if venceu:
-            if marca == "X":
-                print(f"*** {nome1} (X) venceu a partida! ***")
+                    # ===== BLOCO 2: LEITURA E VALIDAÇÃO DA JOGADA (Victor) =====
+                    # O while repete a leitura até a jogada ser válida.
+                    acao_valida = False
+                    while not acao_valida:
+                        acao = input(f"{jogador} ({marca}), escolha a casa (ex.: B2): ")
+
+                        # for aninhado que procura a jogada digitada entre as 9 casas:
+                        # o for de fora (i) percorre as linhas e define a letra (A, B ou C);
+                        # o for de dentro (j) percorre as colunas e monta o texto da casa,
+                        # por exemplo "B" + "2" = "B2". Se a entrada for igual ao texto
+                        # de alguma casa, guardamos a linha e a coluna dela.
+                        linha = -1         # -1 significa "ainda não achou a casa"
+                        coluna = -1
+                        for i in range(3):
+                            if i == 0:
+                                maiuscula = "A"
+                                minuscula = "a"
+                            elif i == 1:
+                                maiuscula = "B"
+                                minuscula = "b"
+                            else:
+                                maiuscula = "C"
+                                minuscula = "c"
+                            for j in range(3):
+                                if acao == maiuscula + str(j + 1) or acao == minuscula + str(j + 1):
+                                    linha = i
+                                    coluna = j
+
+                        if acao == "":
+                            print("Você não digitou nada. Digite uma letra (A a C) e um número (1 a 3).")
+                        elif linha == -1:
+                            print("Jogada inválida. Digite a linha (A a C) e a coluna (1 a 3), ex.: B2.")
+                        elif tabuleiro[linha][coluna] != " ":
+                            print("Essa casa já está ocupada. Escolha outra.")
+                        else:
+                            acao_valida = True
+
+                    # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
+                    tabuleiro[linha][coluna] = marca
+
+                    # ===== BLOCO 2: VITÓRIA (Victor) =====
+                    # O for repete o mesmo teste para as 3 linhas e as 3 colunas
+                    # (i é o número da linha no primeiro if e o da coluna no segundo).
+                    venceu = False
+                    for i in range(3):
+                        # linha i completa com o símbolo do jogador atual
+                        if tabuleiro[i][0] == marca and tabuleiro[i][1] == marca and tabuleiro[i][2] == marca:
+                            venceu = True
+                        # coluna i completa com o símbolo do jogador atual
+                        if tabuleiro[0][i] == marca and tabuleiro[1][i] == marca and tabuleiro[2][i] == marca:
+                            venceu = True
+                    # diagonal principal (A1, B2, C3)
+                    if tabuleiro[0][0] == marca and tabuleiro[1][1] == marca and tabuleiro[2][2] == marca:
+                        venceu = True
+                    # diagonal secundária (A3, B2, C1)
+                    if tabuleiro[0][2] == marca and tabuleiro[1][1] == marca and tabuleiro[2][0] == marca:
+                        venceu = True
+
+                    # ===== BLOCO 3: EMPATE (Marcos) =====
+                    # for aninhado que conta as casas vazias: o de fora (i) percorre as
+                    # linhas e o de dentro (j) percorre as colunas, somando 1 a cada " ".
+                    vazio = 0
+                    for i in range(3):
+                        for j in range(3):
+                            if tabuleiro[i][j] == " ":
+                                vazio = vazio + 1
+
+                    if venceu:
+                        fim = True
+                    elif vazio == 0:
+                        fim = True
+                    else:
+                        # ===== BLOCO 2: TROCA DE JOGADOR (Victor) =====
+                        if marca == "X":
+                            marca = "O"
+                        else:
+                            marca = "X"
+
+            # ===== BLOCO 3: RESULTADO, PLACAR E SEQUÊNCIAS (Marcos) =====
+            if venceu:
+                if marca == "X":
+                    print(f"*** {nome1} (X) venceu a partida! ***")
+                else:
+                    print(f"*** {nome2} (O) venceu a partida! ***")
             else:
-                print(f"*** {nome2} (O) venceu a partida! ***")
-        else:
-            print("*** Deu velha! A partida terminou em empate. ***")
+                print("*** Deu velha! A partida terminou em empate. ***")
+
+            # ===== BLOCO 1: PERGUNTAR SE JOGA NOVAMENTE (Kallyson) =====
+            resposta = ""
+            while resposta != "S" and resposta != "s" and resposta != "N" and resposta != "n":
+                resposta = input("Jogar novamente? (S/N): ")
+                if resposta != "S" and resposta != "s" and resposta != "N" and resposta != "n":
+                    print("Resposta inválida. Digite S para sim ou N para não.")
+            if resposta == "S" or resposta == "s":
+                nova_partida = "S"
+            else:
+                nova_partida = "N"
 
     # ===== BLOCO 1: REGRAS (Kallyson) =====
     elif opcao == "2":
