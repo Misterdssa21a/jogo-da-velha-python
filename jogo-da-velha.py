@@ -49,6 +49,7 @@ while opcao != "4":
             marca = "X"       # o X sempre começa
             fim = False       # vira True quando alguém vence ou dá empate
             venceu = False    # vira True se o jogador da vez completar uma linha, coluna ou diagonal
+            rodada = 0        # conta as jogadas feitas nesta partida
             encerrar = False  # vira True depois de mostrar o tabuleiro final
 
             # ===== BLOCO 3: SEQUÊNCIA DA PARTIDA (Marcos) =====
@@ -60,6 +61,8 @@ while opcao != "4":
                 print("")
                 if fim:
                     print("-------- Tabuleiro final --------")
+                else:
+                    print(f"------------ Rodada {rodada + 1} ------------")
                 print("      1   2   3")
                 print("    +---+---+---+")
 
@@ -127,6 +130,7 @@ while opcao != "4":
 
                     # ===== BLOCO 2: MARCAR A JOGADA (Victor) =====
                     tabuleiro[linha][coluna] = marca
+                    rodada = rodada + 1
 
                     # ===== BLOCO 2: VITÓRIA (Victor) =====
                     # O for repete o mesmo teste para as 3 linhas e as 3 colunas
@@ -169,9 +173,9 @@ while opcao != "4":
             # ===== BLOCO 3: RESULTADO, PLACAR E SEQUÊNCIAS (Marcos) =====
             if venceu:
                 if marca == "X":
-                    print(f"*** {nome1} (X) venceu a partida! ***")
+                    print(f"*** {nome1} (X) venceu a partida em {rodada} rodadas! ***")
                 else:
-                    print(f"*** {nome2} (O) venceu a partida! ***")
+                    print(f"*** {nome2} (O) venceu a partida em {rodada} rodadas! ***")
             else:
                 print("*** Deu velha! A partida terminou em empate. ***")
 
