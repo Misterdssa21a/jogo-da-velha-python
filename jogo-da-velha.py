@@ -21,6 +21,13 @@ while nome2 == "" or nome2 == nome1:
         print("Os dois jogadores precisam ter nomes diferentes.")
 
 
+# ===== BLOCO 3: VARIÁVEIS DO PLACAR E DAS ESTATÍSTICAS (Marcos) =====
+vitorias1 = 0     # vitórias do jogador 1 (X)
+vitorias2 = 0     # vitórias do jogador 2 (O)
+empates = 0       # partidas que terminaram sem vencedor
+partidas = 0      # partidas jogadas na sessão
+
+
 # ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
 opcao = ""
 while opcao != "4":
@@ -171,13 +178,23 @@ while opcao != "4":
                             marca = "X"
 
             # ===== BLOCO 3: RESULTADO, PLACAR E SEQUÊNCIAS (Marcos) =====
+            partidas = partidas + 1
             if venceu:
                 if marca == "X":
                     print(f"*** {nome1} (X) venceu a partida em {rodada} rodadas! ***")
+                    vitorias1 = vitorias1 + 1
                 else:
                     print(f"*** {nome2} (O) venceu a partida em {rodada} rodadas! ***")
+                    vitorias2 = vitorias2 + 1
             else:
                 print("*** Deu velha! A partida terminou em empate. ***")
+                empates = empates + 1
+
+            print("")
+            print("------------- PLACAR -------------")
+            print(f"{nome1} (X): {vitorias1} vitória(s)")
+            print(f"{nome2} (O): {vitorias2} vitória(s)")
+            print(f"Empates: {empates}")
 
             # ===== BLOCO 1: PERGUNTAR SE JOGA NOVAMENTE (Kallyson) =====
             resposta = ""
