@@ -245,6 +245,21 @@ while opcao != "4":
     # ===== BLOCO 3: SAIR E ESTATÍSTICAS DA SESSÃO - DESAFIO DE LÓGICA (Marcos) =====
     elif opcao == "4":
         print("")
+        print("======= ESTATÍSTICAS DA SESSÃO =======")
+        print(f"Total de partidas: {partidas}")
+        if partidas == 0:
+            print("Nenhuma partida foi jogada.")
+        else:
+            # Porcentagem em número decimal (float), com 1 casa e arredondamento
+            porcentagem1 = int(vitorias1 * 1000 / partidas + 0.5) / 10
+            porcentagem2 = int(vitorias2 * 1000 / partidas + 0.5) / 10
+            porcentagem_empates = int(empates * 1000 / partidas + 0.5) / 10
+            print(f"{nome1} (X): {vitorias1} vitória(s) = {porcentagem1}%")
+            print(f"{nome2} (O): {vitorias2} vitória(s) = {porcentagem2}%")
+            print(f"Empates: {empates} = {porcentagem_empates}%")
+            print(f"Maior sequência de vitórias de {nome1}: {recorde1}")
+            print(f"Maior sequência de vitórias de {nome2}: {recorde2}")
+        print("")
         print("Obrigado por jogar")
 
     # ===== BLOCO 1: OPÇÃO INVÁLIDA NO MENU (Kallyson) =====
