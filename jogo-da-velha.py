@@ -26,6 +26,10 @@ vitorias1 = 0     # vitórias do jogador 1 (X)
 vitorias2 = 0     # vitórias do jogador 2 (O)
 empates = 0       # partidas que terminaram sem vencedor
 partidas = 0      # partidas jogadas na sessão
+sequencia1 = 0    # vitórias seguidas do jogador 1 neste momento
+sequencia2 = 0    # vitórias seguidas do jogador 2 neste momento
+recorde1 = 0      # maior sequência de vitórias do jogador 1 na sessão
+recorde2 = 0      # maior sequência de vitórias do jogador 2 na sessão
 
 
 # ===== BLOCO 1: MENU PRINCIPAL (Kallyson) =====
@@ -183,12 +187,22 @@ while opcao != "4":
                 if marca == "X":
                     print(f"*** {nome1} (X) venceu a partida em {rodada} rodadas! ***")
                     vitorias1 = vitorias1 + 1
+                    sequencia1 = sequencia1 + 1
+                    sequencia2 = 0
+                    if sequencia1 > recorde1:
+                        recorde1 = sequencia1
                 else:
                     print(f"*** {nome2} (O) venceu a partida em {rodada} rodadas! ***")
                     vitorias2 = vitorias2 + 1
+                    sequencia2 = sequencia2 + 1
+                    sequencia1 = 0
+                    if sequencia2 > recorde2:
+                        recorde2 = sequencia2
             else:
                 print("*** Deu velha! A partida terminou em empate. ***")
                 empates = empates + 1
+                sequencia1 = 0
+                sequencia2 = 0
 
             print("")
             print("------------- PLACAR -------------")
