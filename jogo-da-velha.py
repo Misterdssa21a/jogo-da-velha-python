@@ -222,7 +222,11 @@ while opcao != "4":
 
     # ===== BLOCO 3: VER PLACAR (Marcos) =====
     elif opcao == "3":
-        print("Em construção.")
+        print("")
+        print("------------- PLACAR -------------")
+        print(f"{nome1} (X): {vitorias1} vitória(s)")
+        print(f"{nome2} (O): {vitorias2} vitória(s)")
+        print(f"Empates: {empates}")
 
     # ===== BLOCO 3: SAIR E ESTATÍSTICAS DA SESSÃO - DESAFIO DE LÓGICA (Marcos) =====
     elif opcao == "4":
