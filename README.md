@@ -58,7 +58,7 @@ O jogo pede a jogada de novo se for digitado:
 
 1. Instale o Python 3 (https://www.python.org/downloads/).
 2. Baixe o repositório: `git clone https://github.com/Misterdssa21a/jogo-da-velha-python`
-3. Entre na pasta do projeto e rode: `python jogo_da_velha.py`
+3. Entre na pasta do projeto e rode: `python3 jogo-da-velha.py`
 
 ## Desafio de lógica
 
@@ -69,7 +69,7 @@ O jogo pede a jogada de novo se for digitado:
 - a porcentagem de vitórias de cada jogador (número decimal, ex.: 66.7%);
 - a maior sequência de vitórias seguidas de cada jogador.
 
-Onde está no código: *(preencher com o bloco ou as linhas quando o código estiver pronto)*.
+Onde está no código: Bloco 3 (Marcos), em `jogo-da-velha.py`. As variáveis do placar e das sequências ficam nas linhas 24 a 32, o cálculo do resultado e das sequências nas linhas 184 a 205, e as estatísticas da sessão, com as porcentagens, nas linhas 245 a 263.
 
 ## Tecnologias
 
@@ -88,5 +88,5 @@ Onde está no código: *(preencher com o bloco ou as linhas quando o código est
 ## Documentação
 
 - Guia de GitHub para o trio: [guia-github.md](guia-github.md)
-- Vídeo explicativo (YouTube, não listado): *(colocar o link)*
+- Vídeo explicativo (YouTube, não listado): https://youtu.be/EabvqMevpzA
 - Relatório técnico: enviado em PDF pelo formulário.
